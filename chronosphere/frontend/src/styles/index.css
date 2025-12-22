@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-color: #000;
+  color: white;
+}
+
+/* Cesium Overrides */
+.cesium-viewer-bottom {
+  display: none;
+  /* Hide default credit for cleaner UI (ensure you display it elsewhere if required by license) */
+}
