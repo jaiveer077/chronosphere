@@ -1,11 +1,9 @@
 import React from 'react';
 import { Loader2 } from 'lucide-react';
-
 const InfoPanel = ({ location, year, onGenerate, isGenerating, generatedImage }) => {
     if (!location) return null;
-
     return (
-        <div className="absolute top-4 right-4 w-96 bg-black/80 backdrop-blur-lg border border-white/10 rounded-xl p-6 text-white z-10 shadow-2xl">
+        <div className="m-4 w-96 bg-black/80 backdrop-blur-lg border border-white/10 rounded-xl p-6 text-white z-10 shadow-2xl">
             <h2 className="text-xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
                 Coordinates Locked
             </h2>
@@ -23,7 +21,6 @@ const InfoPanel = ({ location, year, onGenerate, isGenerating, generatedImage })
                     <span className="text-lg text-white">{year}</span>
                 </div>
             </div>
-
             {generatedImage ? (
                 <div className="mb-4 animate-in fade-in duration-500">
                     <img
@@ -40,7 +37,6 @@ const InfoPanel = ({ location, year, onGenerate, isGenerating, generatedImage })
                     Select location & time to visualize
                 </div>
             )}
-
             <button
                 onClick={onGenerate}
                 disabled={isGenerating}
@@ -58,5 +54,4 @@ const InfoPanel = ({ location, year, onGenerate, isGenerating, generatedImage })
         </div>
     );
 };
-
 export default InfoPanel;

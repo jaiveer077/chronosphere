@@ -3,7 +3,7 @@ import { Calendar, Clock } from 'lucide-react';
 
 const TimeSelector = ({ selectedYear, onYearChange }) => {
     return (
-        <div className="absolute top-4 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-md p-4 rounded-xl border border-white/20 z-10 flex items-center gap-4 text-white">
+        <div className="bg-black/70 backdrop-blur-md p-4 rounded-xl border border-white/20 z-10 flex items-center gap-4 text-white">
             <div className="flex items-center gap-2">
                 <Clock className="w-5 h-5 text-blue-400" />
                 <span className="font-mono text-sm uppercase tracking-wider">Temporal Anchor</span>

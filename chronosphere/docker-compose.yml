@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   # Database with PostGIS extension
   db:
@@ -13,14 +12,12 @@ services:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
-
   # Redis for caching
   redis:
     image: redis:7-alpine
     restart: always
     ports:
       - "6379:6379"
-
   # Backend API
   backend:
     build: ./backend
@@ -38,8 +35,7 @@ services:
     depends_on:
       - db
       - redis
-
-  # Frontend (Dev Mode)
+  # Frontend
   frontend:
     image: node:18-alpine
     working_dir: /app
@@ -50,6 +46,5 @@ services:
       - "5173:5173"
     depends_on:
       - backend
-
 volumes:
   postgres_data:
