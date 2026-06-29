@@ -39,11 +39,11 @@ graph TD
     subgraph "Backend Infrastructure"
         API -->|Read/Write| DB[(PostgreSQL + PostGIS)]
         API -->|Cache Hit/Miss| Redis[(Redis Cache)]
-        API -->|Queue Job| Worker[Background Worker (Optional for Scale)]
+        API -->|Queue Job| Worker["Background Worker (Optional for Scale)"]
     end
 
     subgraph "AI Services Layer"
-        API -->|Context Prompting| LLM[LLM Service (Gemini/GPT)]
+        API -->|Context Prompting| LLM["LLM Service (Gemini/GPT)"]
         API -->|Image Gen| SD[Stable Diffusion API]
         LLM -->|Structured Prompt| SD
     end
