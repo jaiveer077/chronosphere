@@ -16,11 +16,8 @@ const CesiumViewer = ({ onLocationSelect }) => {
             try {
                 // Initialize Cesium Viewer
                 // Use OpenStreetMap as fallback if Ion fails (no token needed)
-                const viewer = new Viewer(containerRef.current, {
+                const viewerOptions = {
                     terrainProvider: undefined,
-                    imageryProvider: new Cesium.OpenStreetMapImageryProvider({
-                        url: 'https://a.tile.openstreetmap.org/'
-                    }),
                     baseLayerPicker: false,
                     geocoder: true,
                     timeline: false,
@@ -29,7 +26,16 @@ const CesiumViewer = ({ onLocationSelect }) => {
                     sceneModePicker: false,
                     selectionIndicator: true,
                     infoBox: false,
-                });
+                };
+
+                // Fallback to OSM if no Ion token is provided
+                if (!Cesium.Ion.defaultAccessToken) {
+                    viewerOptions.imageryProvider = new Cesium.OpenStreetMapImageryProvider({
+                        url: 'https://tile.openstreetmap.org/'
+                    });
+                }
+
+                const viewer = new Viewer(containerRef.current, viewerOptions);
 
                 viewerRef.current = viewer;
 

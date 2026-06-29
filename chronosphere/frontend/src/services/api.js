@@ -1,6 +1,13 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8001/api/v1';
+let baseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+if (baseUrl.endsWith('/')) {
+    baseUrl = baseUrl.slice(0, -1);
+}
+if (!baseUrl.endsWith('/api/v1')) {
+    baseUrl = `${baseUrl}/api/v1`;
+}
+const API_BASE_URL = baseUrl;
 
 
 export const generateImage = async (lat, lng, year) => {
